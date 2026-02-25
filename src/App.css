@@ -1,0 +1,58 @@
+/* App-specific styles */
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure main content stacks correctly */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* GPU acceleration for animations */
+.bento-card,
+.product-card,
+.team-card {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Image loading optimization */
+img {
+  content-visibility: auto;
+}
+
+/* Focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #E30613;
+  outline-offset: 2px;
+}
+
+/* Mobile touch optimization */
+@media (pointer: coarse) {
+  .bento-card:hover,
+  .product-card:hover,
+  .team-card:hover {
+    transform: none;
+  }
+  
+  .marquee-container:hover .marquee-track {
+    animation-play-state: running;
+  }
+}
+
+/* Print styles */
+@media print {
+  .header,
+  .menu-overlay {
+    display: none !important;
+  }
+  
+  .hero-section {
+    height: auto;
+    min-height: 400px;
+  }
+}
